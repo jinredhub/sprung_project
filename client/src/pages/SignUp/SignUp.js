@@ -107,6 +107,12 @@ class SignUp extends Component {
         }
     }
 
+    handleKeyPress = (ev) =>{
+        if(ev.key === 'Enter'){
+            this.formSignupHandler();
+        }
+    }
+
 
     render() {
         let errorMessage='';
@@ -118,22 +124,26 @@ class SignUp extends Component {
                 inputtype='input'
                 type='text'
                 label='Email'
-                onChange={(ev)=>this.inputTextHandler(ev, 'email')}/>
+                onChange={(ev)=>this.inputTextHandler(ev, 'email')}
+                onKeyPress={this.handleKeyPress}/>
             <Input
                 inputtype='input'
                 type='text'
                 label='First name'
-                onChange={(ev)=>this.inputTextHandler(ev, 'firstName')}/>
+                onChange={(ev)=>this.inputTextHandler(ev, 'firstName')}
+                onKeyPress={this.handleKeyPress}/>
             <Input
                 inputtype='input'
                 type='text'
                 label='Last name'
-                onChange={(ev)=>this.inputTextHandler(ev, 'lastName')}/>
+                onChange={(ev)=>this.inputTextHandler(ev, 'lastName')}
+                onKeyPress={this.handleKeyPress}/>
             <Input
                 inputtype='input'
                 type='password'
                 label='Password'
-                onChange={(ev)=>this.inputTextHandler(ev, 'password')}/>
+                onChange={(ev)=>this.inputTextHandler(ev, 'password')}
+                onKeyPress={this.handleKeyPress}/>
             {errorMessage}
             <Button id='signupButton' onClick={()=>this.formSignupHandler()} type='button'>Sign Up</Button>
         </form>;

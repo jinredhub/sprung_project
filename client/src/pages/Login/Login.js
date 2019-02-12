@@ -47,6 +47,13 @@ class Login extends Component {
         }
     }
 
+    handleKeyPress = (ev) =>{
+        // console.log(ev.key);
+        if(ev.key === 'Enter'){
+            this.formLoginHandler();
+        }
+    }
+
     render() {
         let errorMessage='';
         if(this.state.errorMessage){
@@ -57,12 +64,14 @@ class Login extends Component {
                             inputtype='input'
                             type='text'
                             label='Username'
-                            onChange={(ev)=>this.inputTextHandler(ev, 'username')}/>
+                            onChange={(ev)=>this.inputTextHandler(ev, 'username')}
+                            onKeyPress={this.handleKeyPress}/>
                         <Input
                             inputtype='input'
                             type='password'
                             label='Password'
-                            onChange={(ev)=>this.inputTextHandler(ev, 'password')}/>
+                            onChange={(ev)=>this.inputTextHandler(ev, 'password')}
+                            onKeyPress={this.handleKeyPress}/>
                         {errorMessage}
                         <Button onClick={()=>this.formLoginHandler()} type='button'>Log In</Button>
                         <div className='linkContainer'>
