@@ -86,7 +86,7 @@ class SignUp extends Component {
             });
         }
         else{
-            const message = 'First name and last name required.';
+            const message = 'Please fill out all fields.';
             this.setState({errorMessage: message});
         }
 
