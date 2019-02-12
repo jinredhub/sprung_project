@@ -137,6 +137,8 @@ class AllTweets extends Component {
         });
         // console.log('format: ', formattedTime);
 
+        formattedTime.reverse();
+
         if(tweets.length){
             allTweets = formattedTime.map(val=>{
                 return <Tweet
