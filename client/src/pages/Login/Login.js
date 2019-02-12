@@ -38,17 +38,6 @@ class Login extends Component {
         });
     }
 
-    // formSignupHandler = () =>{
-    //     console.log('button pressed');
-    //     console.log(this.state);
-    //     const email = this.state.emailText;
-    //     const password = this.state.passwordText;
-    //     const auth = firebase.auth();
-    //     const promise = auth.createUserWithEmailAndPassword(email, password);
-    //     promise.catch(e=>console.log(e.message));
-    //
-    // }
-
     inputTextHandler = (ev, type) =>{
         if(type === 'username'){
             this.setState({ emailText: ev.target.value});

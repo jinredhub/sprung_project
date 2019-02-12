@@ -57,7 +57,7 @@ class AllTweets extends Component {
                 this.setState({ loginEmail: firebaseUser.email });
 
                 const user = firebase.auth().currentUser;
-                console.log('current user: ', user);
+                // console.log('current user: ', user);
                 this.loadDatabase();
             }
             else{
@@ -69,20 +69,11 @@ class AllTweets extends Component {
     }
 
     loadDatabase = () =>{
-        console.log('loading database');
-
-        // axios.get('/.json')
-        //     .then(res=>{
-        //         console.log('load: ',res.data);
-        //         this.setState({allUsers: res.data});
-        //     })
-        //     .catch(err=>console.log(err));
-        //
         // console.log('loading database');
 
         axios.get('/.json')
             .then(res=>{
-                console.log('load: ',res.data);
+                // console.log('load: ',res.data);
 
                 // firebase won't store empty array, so create empty array here
                 for(let user of res.data.allUsers){
@@ -93,7 +84,7 @@ class AllTweets extends Component {
                         user.following = [];
                     }
                 }
-                console.log('new res.data: ', res.data);
+                // console.log('new res.data: ', res.data);
                 this.setState({allUsers: res.data.allUsers});
             })
             .catch(err=>console.log(err));
@@ -114,7 +105,7 @@ class AllTweets extends Component {
             }
         }
 
-        console.log('tweets:',tweets);
+        // console.log('tweets:',tweets);
 
         // format date/time
         // console.log('sorted tweets: ', tempArray);
@@ -132,7 +123,7 @@ class AllTweets extends Component {
                 firstName: tweet.firstName,
                 lastName: tweet.lastName,
                 message: tweet.message,
-                created_at: tweet.created_at.format('MM/DD/YYYY'),
+                created_at: tweet.created_at.format('MM/DD/YYYY HH:mm:ss'),
             }
         });
         // console.log('format: ', formattedTime);

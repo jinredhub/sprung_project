@@ -31,43 +31,27 @@ class SignUp extends Component {
     }
 
     loadDatabase = () =>{
-        console.log('loading database');
+        // console.log('loading database');
 
         axios.get('/.json')
             .then(res=>{
-                console.log('load: ',res.data);
+                // console.log('load: ',res.data);
                 if(res.data.allUsers.length){
-                    console.log('yes length');
+                    // console.log('yes length');
                     this.setState({allUsers: res.data.allUsers});
                 }
                 else{
-                    console.log('no length');
+                    // console.log('no length');
                     this.setState({allUsers: []});
                 }
             })
             .catch(err=>console.log(err));
-
     }
-
-    // // update db
-    // updateDatabase = ()=>{
-    //     console.log('updating db');
-    //     let allUsers = [...this.state.allUsers];
-    //     database.ref().set(allUsers);
-    // }
 
     updateDatabase = (email, firstName, lastName) =>{
 
         const allUsers = this.state.allUsers;
-        console.log('allusers: ', allUsers);
-        // if(!allUsers[email]){
-        //     allUsers[email] = {
-        //         firstName: firstName,
-        //         lastName: lastName,
-        //         tweet: [],
-        //         following: [],
-        //     }
-        // }
+        // console.log('allusers: ', allUsers);
 
         allUsers.push({
             firstName: firstName,
@@ -77,11 +61,7 @@ class SignUp extends Component {
             following: [],
         });
 
-        console.log('save data: ', allUsers);
-
-        // axios.post('/.json', allUsers)
-        //     .then(res=>console.log(res))
-        //     .catch(err=>console.log(err));
+        // console.log('save data: ', allUsers);
 
         database.ref("-LYQMvCCcIhXxVdiPSvW").set({allUsers: allUsers});
 

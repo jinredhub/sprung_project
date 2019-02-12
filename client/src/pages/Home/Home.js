@@ -163,7 +163,7 @@ class Home extends Component {
                 firstName: tweet.firstName,
                 lastName: tweet.lastName,
                 message: tweet.message,
-                created_at: tweet.created_at.format('MM/DD/YYYY'),
+                created_at: tweet.created_at.format('MM/DD/YYYY HH:mm:ss'),
             }
         });
         // console.log('format: ', formattedTime);
@@ -194,10 +194,6 @@ class Home extends Component {
                     });
                 }
             }
-            // allUsers[loginEmail]['tweets'].push({
-            //    message: this.state.newTweet,
-            //     created_at: today,
-            // });
 
             this.setState({
                 allUsers: allUsers,
@@ -222,7 +218,6 @@ class Home extends Component {
             }
         }
         this.setState({allUsers: allUsers});
-        // console.log('================================');
         // console.log('allusers: ',allUsers[0]);
 
         this.storeTweetsYouFollow(loginEmail);
